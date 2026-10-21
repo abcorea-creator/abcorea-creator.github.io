@@ -137,6 +137,9 @@ details.all[open] summary::after{content:"－"}
 .gb-list .who{font-weight:600}
 .gb-list .when{font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
 .gb-list p{margin:4px 0 0;white-space:pre-wrap}
+.gb-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 0}
+.gb-pager button{min-width:38px;height:38px;padding:0 8px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:15px;font-variant-numeric:tabular-nums;cursor:pointer}
+.gb-pager button[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
 .sample{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
 
 /* 7. 하단 */
@@ -301,6 +304,7 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
         <p class="gb-msg" id="gb-msg" role="status"></p>
       </form>
       <ul class="gb-list" id="gb-list"></ul>
+      <nav class="gb-pager" id="gb-pager" aria-label="방명록 쪽 이동" hidden></nav>
     </section>
   </div>
 </main>
@@ -328,10 +332,25 @@ const $ = (id) => document.getElementById(id);
 const list = $("gb-list"), msg = $("gb-msg");
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+const PER_PAGE = 10;
+let gbItems = [], gbSample = false, gbPage = 1;
 function render(items, sample){
-  if(!items.length){list.innerHTML='<li class="gb-note">아직 게시된 글이 없습니다. 첫 안부를 남겨 주세요.</li>';return}
-  list.innerHTML = items.map(it=>`<li><span class="who">${esc(it.name)}</span>${sample?'<span class="sample">예시</span>':''}<span class="when">${esc(it.date||"")}</span><p>${esc(it.message)}</p></li>`).join("");
+  gbItems = items; gbSample = sample; gbPage = 1; showPage(1, false);
 }
+function showPage(n, scroll){
+  const pager = $("gb-pager");
+  if(!gbItems.length){list.innerHTML='<li class="gb-note">아직 게시된 글이 없습니다. 첫 안부를 남겨 주세요.</li>';pager.hidden=true;return}
+  const pages = Math.ceil(gbItems.length / PER_PAGE);
+  gbPage = Math.min(Math.max(1, n), pages);
+  const start = (gbPage - 1) * PER_PAGE;
+  list.innerHTML = gbItems.slice(start, start + PER_PAGE).map(it=>`<li><span class="who">${esc(it.name)}</span>${gbSample?'<span class="sample">예시</span>':''}<span class="when">${esc(it.date||"")}</span><p>${esc(it.message)}</p></li>`).join("");
+  pager.hidden = pages <= 1;
+  let html = "";
+  for(let i=1;i<=pages;i++){html += `<button type="button" data-p="${i}" ${i===gbPage?'aria-current="page"':''} aria-label="${i}쪽">${i}</button>`}
+  pager.innerHTML = html;
+  if(scroll){$("h-gb").scrollIntoView({behavior:"smooth",block:"start"})}
+}
+document.addEventListener("click",(e)=>{const b=e.target.closest("#gb-pager button");if(b){showPage(Number(b.dataset.p), true)}});
 const SAMPLE=[
   {name:"광주의 오랜 동료",date:"2026.10.21",message:"새 출발을 응원합니다. 책 잘 읽었습니다."},
   {name:"담양 친구",date:"2026.10.21",message:"촌놈 이야기에 웃었네. 언제 밥 한번 하세."}
