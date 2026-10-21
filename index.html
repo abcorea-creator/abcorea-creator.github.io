@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>이정기 모바일 명함</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="작가·플로우워커 이정기. 현미경과 망원경으로 정치와 행정을 보아 온 사람.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="이정기 | 작가·플로우워커">
+<meta property="og:description" content="前 광주특별시의회 전문위원 · 현미경과 망원경으로 정치와 행정을 보아 온 사람">
+<meta property="og:image" content="https://abcorea-creator.github.io/assets/og-image.jpg">
+<meta property="og:url" content="https://abcorea-creator.github.io/">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Noto+Serif+KR:wght@600&display=swap">
+<style>
+/* 레이아웃: 남색 표지(첫 화면) 아래로 한지색 지면이 이어지는 한 장짜리 세로 명함. 붉은 낙관이 유일한 강조색. */
+:root{
+  --ink:#16213a;        /* 남색 먹 */
+  --ink-2:#26355a;
+  --paper:#f7f5f0;      /* 한지 */
+  --card:#ffffff;
+  --text:#1d2230;
+  --muted:#5d6475;
+  --line:#e2ddd2;
+  --seal:#a3243a;       /* 낙관 붉은색 */
+  --gold:#e3c27a;
+  --on-ink:#f4f1ea;
+  --on-ink-muted:#b9c1d4;
+  --f-display:"Gowun Batang","Noto Serif KR",serif;
+  --f-hanja:"Noto Serif KR","Gowun Batang",serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#12161f;--card:#1a2030;--text:#e8e6e0;--muted:#a2a9b8;--line:#2c3446;--seal:#e0606f;--ink:#0d1424;--ink-2:#1c2843;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#12161f;--card:#1a2030;--text:#e8e6e0;--muted:#a2a9b8;--line:#2c3446;--seal:#e0606f;--ink:#0d1424;--ink-2:#1c2843;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(18px, env(safe-area-inset-left, 0px));padding-right:max(18px, env(safe-area-inset-right, 0px))}
+:focus-visible{outline:3px solid var(--seal);outline-offset:3px;border-radius:6px}
+
+/* 1. 첫 화면 */
+.hero{background:var(--ink);color:var(--on-ink)}
+.hero .wrap{padding-block:34px 30px;display:grid;justify-items:center;text-align:center;gap:6px}
+.portrait{width:152px;aspect-ratio:1;margin-bottom:14px;padding:5px;border-radius:50%;border:1.5px solid rgba(227,194,122,.7)}
+.portrait img{width:100%;height:100%;border-radius:50%}
+.name{font-family:var(--f-display);font-weight:700;font-size:42px;line-height:1.15;margin:0;letter-spacing:.06em;display:flex;align-items:center;gap:10px}
+.field{margin:26px 0 0;display:grid;gap:8px}
+.field img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;border-radius:12px}
+.field figcaption{display:grid;gap:2px;text-align:center;padding-top:6px}
+.field figcaption strong{font-family:var(--f-display);font-size:21px;font-weight:700;color:var(--text)}
+.field figcaption strong span{color:var(--seal);letter-spacing:.02em}
+.field figcaption em{font-family:var(--f-display);font-style:italic;font-size:15.5px;color:var(--seal);letter-spacing:.04em}
+.field figcaption > span{font-size:15.5px;color:var(--muted);margin-top:4px}
+.name small{font-family:var(--f-hanja);font-weight:600;font-size:19px;color:var(--on-ink-muted);letter-spacing:.12em}
+.role{font-family:var(--f-display);font-size:25px;font-weight:700;color:var(--gold);margin:4px 0 0;letter-spacing:.04em}
+.former{font-size:15.5px;color:var(--on-ink-muted);margin:0}
+.motto{margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(185,193,212,.25);font-family:var(--f-display);font-size:18px;line-height:1.6;color:var(--on-ink)}
+
+/* 2. 연락 버튼 */
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-1px;padding-block:22px 6px}
+.act{display:grid;justify-items:center;gap:6px;padding:14px 2px 12px;white-space:nowrap;letter-spacing:-.02em;background:var(--card);border:1px solid var(--line);border-radius:12px;text-decoration:none;font-size:14.5px;font-weight:500;color:var(--text);cursor:pointer;font-family:inherit}
+.act svg{width:24px;height:24px;stroke:var(--seal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.act:active{transform:translateY(1px)}
+.contact-lines{display:grid;gap:2px;margin:12px 0 0;font-size:15.5px;color:var(--muted);text-align:center}
+.contact-lines b{color:var(--text);font-weight:500;user-select:all}
+
+/* 공통 섹션 */
+section.block{padding-block:40px 8px}
+.eyebrow{font-size:13px;letter-spacing:.14em;color:var(--seal);font-weight:600;margin:0 0 4px}
+h2{font-family:var(--f-display);font-size:28px;line-height:1.3;margin:0 0 20px;text-wrap:balance}
+
+/* 3. 일곱 갈래 길 */
+.path{list-style:none;margin:0;padding:0;position:relative}
+.path::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.path li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:14px;padding-bottom:24px}
+.path .no{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1.5px solid var(--line);font-family:var(--f-display);font-weight:700;font-size:17px;color:var(--muted);position:relative;z-index:1}
+.path li:last-child .no{background:var(--seal);border-color:var(--seal);color:#fff}
+.path h3{margin:5px 0 0;font-family:var(--f-display);font-size:22px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.path h3 span{font-family:var(--f-body);font-size:14px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.path p{margin:6px 0 0;color:var(--text)}
+.path li:last-child h3{color:var(--seal)}
+
+/* 4. 경력 */
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{font-size:14.5px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.groups{display:grid;gap:14px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
+.group h3{margin:0 0 8px;font-size:15px;letter-spacing:.1em;color:var(--seal);font-weight:600}
+.group ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.group li{padding-left:28px;position:relative;line-height:1.55}
+.group li::before{content:"前";position:absolute;left:0;top:1px;font-family:var(--f-hanja);font-size:14px;color:var(--muted)}
+.group li small{display:block;color:var(--muted);font-size:14px}
+details.all{margin-top:16px;border-top:1px solid var(--line)}
+details.all summary{cursor:pointer;padding:14px 0;font-weight:500;color:var(--seal);list-style:none;display:flex;justify-content:space-between}
+details.all summary::-webkit-details-marker{display:none}
+details.all summary::after{content:"＋"}
+details.all[open] summary::after{content:"－"}
+.chrono{overflow-x:auto}
+.chrono table{width:100%;border-collapse:collapse;font-size:14.5px}
+.chrono td{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.chrono td:first-child{white-space:nowrap;color:var(--muted);font-variant-numeric:tabular-nums;width:1%}
+.chrono .sub{margin:18px 0 6px;font-weight:600;font-size:15px}
+
+/* 5. 저서 */
+.books{display:grid;gap:16px}
+.book{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.book img{width:110px;border-radius:3px;box-shadow:0 6px 14px rgba(22,33,58,.18)}
+.book h3{margin:0;font-family:var(--f-display);font-size:19.5px;line-height:1.4}
+.book .sub{margin:4px 0 0;color:var(--muted);font-size:15px;line-height:1.5}
+.book .meta{margin:8px 0 12px;font-size:13.5px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:8px;background:var(--ink);color:#fff;text-decoration:none;font-size:14.5px;font-weight:500;border:0;cursor:pointer;font-family:inherit}
+
+/* 6. 방명록 */
+.gb-form{display:grid;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.gb-form label{font-size:14.5px;font-weight:500}
+.gb-form input,.gb-form textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--text)}
+.gb-form textarea{min-height:96px;resize:vertical}
+.gb-form .hp{position:absolute;left:-9999px}
+.gb-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.gb-note{font-size:13.5px;color:var(--muted);margin:0}
+.gb-msg{font-size:14.5px;margin:0;min-height:1.4em}
+.gb-msg.err{color:var(--seal)}
+.gb-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
+.gb-list li{padding:14px 2px;border-bottom:1px solid var(--line)}
+.gb-list .who{font-weight:600}
+.gb-list .when{font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
+.gb-list p{margin:4px 0 0;white-space:pre-wrap}
+.sample{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
+
+/* 7. 하단 */
+footer{margin-top:44px;background:var(--ink);color:var(--on-ink)}
+footer .wrap{padding-block:32px 40px;display:grid;justify-items:center;text-align:center;gap:14px}
+footer .qr{width:132px;background:#fff;padding:6px;border-radius:8px}
+footer .share{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+footer .share .btn{background:var(--ink-2);border:1px solid rgba(185,193,212,.3)}
+footer .url{font-size:14px;color:var(--on-ink-muted)}
+footer .seal{width:72px;height:72px;padding:8px;border-radius:50%;background:var(--paper)}
+footer small{color:var(--on-ink-muted);font-size:12.5px}
+.toast{font-size:14px;color:var(--gold);min-height:1.3em;margin:0}
+
+@media (max-width:380px){.actions{grid-template-columns:repeat(2,1fr)}.name{font-size:38px}.book{grid-template-columns:88px 1fr}.book img{width:88px}}
+@media (prefers-reduced-motion:no-preference){.portrait img{animation:rise .7s ease-out both}@keyframes rise{from{transform:translateY(8px)}to{transform:none}}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="portrait">
+      <img src="assets/avatar.png" alt="이정기 프로필 사진" width="480" height="480">
+    </div>
+    <h1 class="name">이정기 <small>李政基</small></h1>
+    <p class="role">작가 · 플로우워커</p>
+    <p class="former">前 광주특별시의회 전문위원</p>
+    <p class="motto">현미경과 망원경으로<br>정치와 행정을 보아 온 사람</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <nav class="actions" aria-label="연락하기">
+      <a class="act" href="tel:01092391760"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>전화</a>
+      <a class="act" href="sms:01092391760"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg>문자</a>
+      <a class="act" href="mailto:abcorea@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>이메일</a>
+      <a class="act" href="assets/leejungki.vcf" download="이정기.vcf"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 19a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6"/></svg>연락처 저장</a>
+    </nav>
+    <p class="contact-lines"><span>휴대전화 <b>010-9239-1760</b></span><span>이메일 <b>abcorea@gmail.com</b></span></p>
+
+    <figure class="field">
+      <img src="assets/field.jpg" alt="회의에서 마이크를 들고 발언하는 이정기" width="1000" height="750" loading="lazy">
+      <figcaption><strong>플로우워커 <span lang="en">Flow Walker</span></strong><em lang="en">Leading the Flow of Change</em><span>사람과 정책, 기술과 행정을 연결하며 새로운 흐름을 설계하는 전략가</span></figcaption>
+    </figure>
+
+    <section class="block" id="story" aria-labelledby="h-story">
+      <p class="eyebrow">STORY</p>
+      <h2 id="h-story">일곱 갈래 길</h2>
+      <ol class="path">
+        <li><span class="no">1</span><div><h3>촌놈 <span>1968 ~</span></h3><p>전라남도 담양에서 태어나 창평고등학교를 다녔습니다.</p></div></li>
+        <li><span class="no">2</span><div><h3>뱃놈 <span>1988 ~ 1995</span></h3><p>한국해양대학교 기관공학과에서 해군사관의 꿈을 키웠습니다. 학내민주화운동으로 해군ROTC에서 제적되어 육군으로 복무했고, 복학 뒤 다시 제적되었으나 노무현·문재인 합동법률사무소를 통한 행정소송에서 이겨 학위를 받았습니다.</p></div></li>
+        <li><span class="no">3</span><div><h3>IT·노사모 <span>1990년대 후반 ~ 2000</span></h3><p>인터넷에 눈을 떠 IT기획과 홍보마케팅 일을 했습니다. 2000년 총선 때 노무현 후보 홈페이지 홍보를 돕게 된 인연으로 정치인 팬클럽 ‘노사모’ 창립을 처음 제안했습니다. (아이디: 늙은여우)</p></div></li>
+        <li><span class="no">4</span><div><h3>공보·지방행정 <span>2004 ~ 2014</span></h3><p>열린우리당 중앙당에서 당보 발행과 TV토론 지원, 홍보 공보 업무를 맡았고, 국회 원내 대변인실을 거쳐 광주광역시 대변인실에서 시장 연설문을 작성했습니다. 이 시기에 SNS 활동을 시작했습니다.</p></div></li>
+        <li><span class="no">5</span><div><h3>정치참모 <span>2014 ~ 2022</span></h3><p>국회의원 보좌관으로 두 차례 일했고, 더불어민주당 광주광역시당 정책실장과 지역위원회 사무국장을 거쳐 제19대·제20대 대통령선거 중앙선거대책위원회에서 공보와 전략을 맡는 등 1998년 이후 30여 차례의 치열한 선거를 치렀습니다.</p></div></li>
+        <li><span class="no">6</span><div><h3>정책참모 <span>2022 ~ 2026</span></h3><p>광주광역시의회 의장비서실장과 특별전문위원으로 시와 시교육청 예산결산을 분석하고 예결특위·5·18특위·기후특위·노동특위·인공지능실증특위 등을 지원했습니다. 2026년 7월 통합특별시의회 출범과 함께 교육특별수석전문위원으로 일했습니다.</p></div></li>
+        <li><span class="no">7</span><div><h3>작가·플로우워커 <span>2026.10 ~</span></h3><p>현미경과 망원경으로 정치와 행정을 본 경험을 글과 책으로 나눕니다. 인공지능 10급 공무원 활용법, 정책선거 노하우 등을 출간했으며 선출직 어공들을 위한 컨설팅 활동을 하고 있습니다. 정치와 행정, 사람과 정책, 기술과 행정, AI와 인간을 연결하며 새로운 흐름을 설계합니다.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block" id="career" aria-labelledby="h-career">
+      <p class="eyebrow">CAREER</p>
+      <h2 id="h-career">경력과 전문분야</h2>
+      <ul class="tags" aria-label="전문분야">
+        <li>예산결산 분석</li><li>입법·정책</li><li>공보·메시지</li><li>연설문·글쓰기</li><li>출판기획</li><li>AI 행정 활용</li><li>정책선거 전략</li><li>조직관리</li><li>의정 지원</li><li>공공혁신</li>
+      </ul>
+      <div class="groups">
+        <div class="group"><h3>지방의회</h3><ul>
+          <li>전남광주통합특별시의회 교육특별수석전문위원<small>2026.7 ~ 2026.10</small></li>
+          <li>광주광역시의회 특별전문위원<small>2023.10 ~ 2026.6 · 예결특위 등 지원</small></li>
+          <li>광주광역시의회 의장비서실장<small>2022.7 ~ 2023.9</small></li>
+        </ul></div>
+        <div class="group"><h3>국회</h3><ul>
+          <li>민형배 국회의원 보좌관(4급)<small>2020.5 ~ 2022.2</small></li>
+          <li>권은희 국회의원 보좌관(4급)<small>2014.12 ~ 2015.9</small></li>
+          <li>국회사무처 원내대변인실 정책연구위원(4급)<small>2006.10 ~ 2007.8</small></li>
+        </ul></div>
+        <div class="group"><h3>지방행정</h3><ul>
+          <li>광주광역시 광산구청 대외협력관<small>2017.10 ~ 2018.2</small></li>
+          <li>광주광역시청 대변인실<small>2010.5 ~ 2014.12</small></li>
+        </ul></div>
+        <div class="group"><h3>정당·선거</h3><ul>
+          <li>제20대 대선 이재명 후보 중앙선대위 전략기획본부 선임팀장<small>2021.11 ~ 2022.3</small></li>
+          <li>제19대 대선 문재인 후보 중앙선대위 공보단 부대변인<small>2017.4 ~ 2017.5</small></li>
+          <li>더불어민주당 광주광역시당 정책실장<small>2016 · 2022</small></li>
+          <li>더불어민주당 호남비전위원회 사무국장<small>2016.10 ~ 2017.9</small></li>
+          <li>열린우리당 중앙당 사무처 부장·부국장<small>2004.4 ~ 2007.8</small></li>
+        </ul></div>
+      </div>
+      <details class="all">
+        <summary>전체 경력 연표 펼쳐보기</summary>
+        <div class="chrono">
+          <table>
+            <tr><td>2026.7 ~ 2026.10</td><td>전남광주통합특별시의회 교육특별수석전문위원</td></tr>
+            <tr><td>2023.10 ~ 2026.6</td><td>광주광역시의회 특별전문위원</td></tr>
+            <tr><td>2022.7 ~ 2023.9</td><td>광주광역시의회 의장비서실장</td></tr>
+            <tr><td>2022.4 ~ 2022.6</td><td>더불어민주당 광주광역시당 정책실장</td></tr>
+            <tr><td>2021.11 ~ 2022.3</td><td>제20대 대선 이재명 후보 중앙선대위 전략기획본부 선임팀장</td></tr>
+            <tr><td>2021.6 ~ 2021.11</td><td>이재명 경선캠프 전략본부 상황실장</td></tr>
+            <tr><td>2020.5 ~ 2022.2</td><td>민형배 국회의원 보좌관(4급)</td></tr>
+            <tr><td>2018.9 ~ 2019.12</td><td>(사)더불어광주연구원 정책실장</td></tr>
+            <tr><td>2018.7 ~ 2020.2</td><td>더불어민주당 광산구을지역위원회 사무국장</td></tr>
+            <tr><td>2017.10 ~ 2018.2</td><td>광주광역시 광산구청 대외협력관(가급)</td></tr>
+            <tr><td>2017.4 ~ 2017.5</td><td>제19대 대선 문재인 후보 중앙선대위 공보단 부대변인</td></tr>
+            <tr><td>2016.10 ~ 2017.9</td><td>더불어민주당 호남비전위원회·(재)민주연구원 사무국장</td></tr>
+            <tr><td>2016.2 ~ 2016.9</td><td>더불어민주당 광주광역시당 정책실장</td></tr>
+            <tr><td>2014.12 ~ 2015.9</td><td>권은희 국회의원 보좌관(4급)</td></tr>
+            <tr><td>2010.5 ~ 2014.12</td><td>광주광역시청 대변인실 전문계약직(나급)</td></tr>
+            <tr><td>2006.10 ~ 2007.8</td><td>국회사무처 원내대변인실 정책연구위원(4급)</td></tr>
+            <tr><td>2004.4 ~ 2007.8</td><td>열린우리당 중앙당 사무처 부장·부국장</td></tr>
+          </table>
+          <p class="sub">학력</p>
+          <table>
+            <tr><td>1995</td><td>한국해양대학교 기관공학과 졸업</td></tr>
+            <tr><td>1988</td><td>창평고등학교 졸업</td></tr>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="block" id="books" aria-labelledby="h-books">
+      <p class="eyebrow">BOOKS</p>
+      <h2 id="h-books">저서</h2>
+      <div class="books">
+        <article class="book">
+          <img src="assets/book-ai.jpg" alt="《나는 24시간 만능비서를 채용했다》 표지" width="480" height="682" loading="lazy">
+          <div>
+            <h3>나는 24시간 만능비서를 채용했다</h3>
+            <p class="sub">인공지능 AI 10급 공무원 활용법</p>
+            <p class="meta">작가와 · 2025</p>
+            <a class="btn" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011964535" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+          </div>
+        </article>
+        <article class="book">
+          <img src="assets/book-policy.jpg" alt="《2026 지방선거 당선 알고리즘》 표지" width="476" height="760" loading="lazy">
+          <div>
+            <h3>2026 지방선거 당선 알고리즘</h3>
+            <p class="sub">정책으로 승부하라<br>경선 승리를 위한 캠프 필독서</p>
+            <p class="meta">작가와 · 2025</p>
+            <a class="btn" href="https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000012237591" target="_blank" rel="noopener">교보문고에서 보기 ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="guestbook" aria-labelledby="h-gb">
+      <p class="eyebrow">GUESTBOOK</p>
+      <h2 id="h-gb">방명록</h2>
+      <form class="gb-form" id="gb-form" novalidate>
+        <label for="gb-name">이름 또는 닉네임</label>
+        <input id="gb-name" name="name" maxlength="20" autocomplete="name" placeholder="예: 홍길동">
+        <label for="gb-text">남기실 말씀</label>
+        <textarea id="gb-text" name="message" maxlength="300" placeholder="안부 한 줄 남겨 주세요."></textarea>
+        <input class="hp" id="gb-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="gb-row">
+          <p class="gb-note">글은 확인 후 게시됩니다. 연락처는 받지 않습니다.</p>
+          <button class="btn" type="submit" id="gb-submit">남기기</button>
+        </div>
+        <p class="gb-msg" id="gb-msg" role="status"></p>
+      </form>
+      <ul class="gb-list" id="gb-list"></ul>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="qr" src="assets/qr.png" alt="이 명함으로 연결되는 QR코드" width="330" height="330">
+    <p class="url">abcorea-creator.github.io</p>
+    <div class="share">
+      <button class="btn" type="button" id="share-btn">카톡·문자로 공유</button>
+      <button class="btn" type="button" id="copy-btn">링크 복사</button>
+    </div>
+    <p class="toast" id="toast" role="status"></p>
+    <img class="seal" src="assets/seal.png" alt="" width="231" height="240">
+    <small>© 2026 이정기</small>
+  </div>
+</footer>
+
+<script>
+/* 방명록 연결: Google Apps Script 웹 앱 주소를 넣으면 실제 방명록이 작동합니다. 비어 있으면 예시 글만 보입니다. */
+const GUESTBOOK_URL = "";
+const PAGE_URL = "https://abcorea-creator.github.io/";
+
+const $ = (id) => document.getElementById(id);
+const list = $("gb-list"), msg = $("gb-msg");
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function render(items, sample){
+  if(!items.length){list.innerHTML='<li class="gb-note">아직 게시된 글이 없습니다. 첫 안부를 남겨 주세요.</li>';return}
+  list.innerHTML = items.map(it=>`<li><span class="who">${esc(it.name)}</span>${sample?'<span class="sample">예시</span>':''}<span class="when">${esc(it.date||"")}</span><p>${esc(it.message)}</p></li>`).join("");
+}
+const SAMPLE=[
+  {name:"광주의 오랜 동료",date:"2026.10.21",message:"새 출발을 응원합니다. 책 잘 읽었습니다."},
+  {name:"담양 친구",date:"2026.10.21",message:"촌놈 이야기에 웃었네. 언제 밥 한번 하세."}
+];
+async function load(){
+  if(!GUESTBOOK_URL){render(SAMPLE,true);return}
+  try{
+    const r = await fetch(GUESTBOOK_URL);
+    const data = await r.json();
+    render(Array.isArray(data.items)?data.items:[], false);
+  }catch(e){list.innerHTML='<li class="gb-note">방명록을 불러오지 못했습니다. 잠시 뒤 다시 열어 주세요.</li>'}
+}
+$("gb-form").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const name=$("gb-name").value.trim(), text=$("gb-text").value.trim();
+  msg.className="gb-msg err";
+  if(!name){msg.textContent="이름 또는 닉네임을 적어 주세요.";$("gb-name").focus();return}
+  if(text.length<2){msg.textContent="남기실 말씀을 두 글자 이상 적어 주세요.";$("gb-text").focus();return}
+  if(!GUESTBOOK_URL){msg.className="gb-msg";msg.textContent="시안 화면입니다. 방명록 연결 후 실제로 저장됩니다.";return}
+  $("gb-submit").disabled=true;
+  try{
+    const r = await fetch(GUESTBOOK_URL,{method:"POST",body:JSON.stringify({name,message:text,website:$("gb-hp").value})});
+    const data = await r.json();
+    if(data.ok){msg.className="gb-msg";msg.textContent="고맙습니다. 확인 후 게시하겠습니다.";e.target.reset()}
+    else{msg.textContent=data.error||"저장하지 못했습니다. 다시 시도해 주세요."}
+  }catch(err){msg.textContent="저장하지 못했습니다. 인터넷 연결을 확인하고 다시 눌러 주세요."}
+  $("gb-submit").disabled=false;
+});
+["gb-name","gb-text"].forEach(id=>$(id).addEventListener("input",()=>{msg.textContent=""}));
+
+const toast=(t)=>{$("toast").textContent=t;setTimeout(()=>{$("toast").textContent=""},2500)};
+async function copyLink(){
+  try{await navigator.clipboard.writeText(PAGE_URL);toast("링크를 복사했습니다.")}
+  catch(e){toast("주소: "+PAGE_URL)}
+}
+$("copy-btn").addEventListener("click",copyLink);
+$("share-btn").addEventListener("click",async()=>{
+  if(navigator.share){try{await navigator.share({title:"이정기 | 작가·플로우워커",text:"이정기의 모바일 명함입니다.",url:PAGE_URL});return}catch(e){if(e.name==="AbortError")return}}
+  copyLink();
+});
+load();
+</script>
+</body>
+</html>
