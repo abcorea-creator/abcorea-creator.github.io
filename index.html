@@ -89,8 +89,10 @@ h2{font-family:var(--f-display);font-size:28px;line-height:1.3;margin:0 0 20px;t
 .path li:last-child h3{color:var(--seal)}
 
 /* 4. 경력 */
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
-.tags li{font-size:14.5px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.tags{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.tags li{grid-column:span 2;text-align:center;white-space:nowrap;font-size:14.5px;padding:7px 4px;border:1px solid var(--line);border-radius:999px;background:var(--card);letter-spacing:-.01em}
+.tags li.w{grid-column:span 3}
+@media (max-width:370px){.tags li{font-size:13px}}
 .groups{display:grid;gap:14px}
 .group{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
 .group h3{margin:0 0 8px;font-size:15px;letter-spacing:.1em;color:var(--seal);font-weight:600}
@@ -197,7 +199,10 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
       <p class="eyebrow">CAREER</p>
       <h2 id="h-career">경력과 전문분야</h2>
       <ul class="tags" aria-label="전문분야">
-        <li>예산결산 분석</li><li>입법·정책</li><li>공보·메시지</li><li>연설문·글쓰기</li><li>출판기획</li><li>AI 행정 활용</li><li>정책선거 전략</li><li>조직관리</li><li>의정 지원</li><li>공공혁신</li>
+        <li>입법·정책</li><li>출판기획</li><li>조직관리</li>
+        <li class="w">예산결산 분석</li><li class="w">연설문·글쓰기</li>
+        <li>공보·메시지</li><li>의정 지원</li><li>공공혁신</li>
+        <li class="w">AI 행정 활용</li><li class="w">정책선거 전략</li>
       </ul>
       <div class="groups">
         <div class="group"><h3>지방의회</h3><ul>
