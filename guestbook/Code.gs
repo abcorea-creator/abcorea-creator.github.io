@@ -6,13 +6,14 @@
  *  - 게시하려면 '승인' 칸을 체크하면 됩니다. 지우려면 행을 삭제하면 됩니다.
  */
 
+const SPREADSHEET_ID = '1r0rn0FFKSGfr7pOnFjKL8dpyR9wC5H1WK_oOohG3IKM'; // '이정기 명함 방명록' 시트
 const SHEET_NAME = '방명록';
 const MAX_NAME = 20;
 const MAX_MESSAGE = 300;
 const SHOW_LIMIT = 50;
 
 function getSheet_() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   let sh = ss.getSheetByName(SHEET_NAME);
   if (!sh) {
     sh = ss.insertSheet(SHEET_NAME);
@@ -68,4 +69,9 @@ function doPost(e) {
   } catch (err) {
     return json_({ ok: false, error: '저장하지 못했습니다. 잠시 뒤 다시 시도해 주세요.' });
   }
+}
+
+/** 처음 한 번 실행: 권한 승인과 '방명록' 시트 생성 */
+function setup() {
+  getSheet_();
 }
