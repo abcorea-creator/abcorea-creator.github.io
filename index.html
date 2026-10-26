@@ -65,27 +65,33 @@ img{max-width:100%;height:auto;display:block}
 .motto{margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(185,193,212,.25);font-family:var(--f-display);font-size:18px;line-height:1.6;color:var(--on-ink)}
 
 /* 2. 연락 버튼 */
-.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-1px;padding-block:22px 6px}
-.act{display:grid;justify-items:center;gap:6px;padding:14px 2px 12px;white-space:nowrap;letter-spacing:-.02em;background:var(--card);border:1px solid var(--line);border-radius:12px;text-decoration:none;font-size:14.5px;font-weight:500;color:var(--text);cursor:pointer;font-family:inherit}
-.act svg{width:24px;height:24px;stroke:var(--seal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:-1px;padding-block:16px 4px}
+.act{display:grid;justify-items:center;gap:4px;padding:10px 2px 9px;white-space:nowrap;letter-spacing:-.03em;background:var(--card);border:1px solid var(--line);border-radius:12px;text-decoration:none;font-size:clamp(11.5px,3.4vw,14px);font-weight:500;color:var(--text);cursor:pointer;font-family:inherit}
+.act svg{width:22px;height:22px;stroke:var(--seal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .act:active{transform:translateY(1px)}
 .contact-lines{display:grid;gap:2px;margin:12px 0 0;font-size:15.5px;color:var(--muted);text-align:center}
 .contact-lines b{color:var(--text);font-weight:500;user-select:all}
 
 /* 공통 섹션 */
-section.block{padding-block:40px 8px}
+section.block{padding-block:28px 4px}
 .eyebrow{font-size:13px;letter-spacing:.14em;color:var(--seal);font-weight:600;margin:0 0 4px}
-h2{font-family:var(--f-display);font-size:28px;line-height:1.3;margin:0 0 20px;text-wrap:balance}
+h2{font-family:var(--f-display);font-size:25px;line-height:1.3;margin:0 0 14px;text-wrap:balance}
 
 /* 3. 일곱 갈래 길 */
 .path{list-style:none;margin:0;padding:0;position:relative}
-.path::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.path li{position:relative;display:grid;grid-template-columns:40px 1fr;gap:14px;padding-bottom:24px}
-.path .no{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1.5px solid var(--line);font-family:var(--f-display);font-weight:700;font-size:17px;color:var(--muted);position:relative;z-index:1}
+.path::before{content:"";position:absolute;left:17px;top:8px;bottom:14px;width:2px;background:var(--line)}
+.path li{position:relative;display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;padding-bottom:8px}
+.path .no{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1.5px solid var(--line);font-family:var(--f-display);font-weight:700;font-size:17px;color:var(--muted);position:relative;z-index:1}
 .path li:last-child .no{background:var(--seal);border-color:var(--seal);color:#fff}
-.path h3{margin:5px 0 0;font-family:var(--f-display);font-size:22px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.path details{min-width:0;border-bottom:1px solid var(--line)}
+.path summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:36px;padding:2px 0 6px}
+.path summary::-webkit-details-marker{display:none}
+.path summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+.path details[open] summary::after{transform:rotate(-135deg) translateY(-2px)}
+.path li:last-child details{border-bottom:0}
+.path h3{margin:0;font-family:var(--f-display);font-size:20px;line-height:1.3;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
 .path h3 span{font-family:var(--f-body);font-size:14px;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
-.path p{margin:6px 0 0;color:var(--text)}
+.path p{margin:0 0 12px;color:var(--text);font-size:16px;line-height:1.65}
 .path li:last-child h3{color:var(--seal)}
 
 /* 4. 경력 */
@@ -132,20 +138,19 @@ details.all[open] summary::after{content:"－"}
 .gb-note{font-size:13.5px;color:var(--muted);margin:0}
 .gb-msg{font-size:14.5px;margin:0;min-height:1.4em}
 .gb-msg.err{color:var(--seal)}
-.gb-list{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:12px}
-.gb-list li{padding:14px 2px;border-bottom:1px solid var(--line)}
+.gb-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:0}
+.gb-list li{padding:8px 2px;border-bottom:1px solid var(--line);line-height:1.5}
 .gb-list .who{font-weight:600}
 .gb-list .when{font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
-.gb-list p{margin:4px 0 0;white-space:pre-wrap}
+.gb-list p{margin:2px 0 0;white-space:pre-wrap}
 .gb-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 0}
 .gb-pager button{min-width:38px;height:38px;padding:0 8px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:15px;font-variant-numeric:tabular-nums;cursor:pointer}
 .gb-pager button[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
 .sample{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
 
 /* 7. 하단 */
-footer{margin-top:44px;background:var(--ink);color:var(--on-ink)}
-footer .wrap{padding-block:32px 40px;display:grid;justify-items:center;text-align:center;gap:14px}
-footer .qr{width:132px;height:auto;background:#fff;padding:6px;border-radius:8px}
+footer{margin-top:32px;background:var(--ink);color:var(--on-ink)}
+footer .wrap{padding-block:24px 28px;display:grid;justify-items:center;text-align:center;gap:10px}
 footer .share{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 footer .share .btn{background:var(--ink-2);border:1px solid rgba(185,193,212,.3)}
 footer .url{font-size:14px;color:var(--on-ink-muted)}
@@ -153,7 +158,7 @@ footer .seal{width:72px;height:72px;padding:8px;border-radius:50%;background:var
 footer small{color:var(--on-ink-muted);font-size:12.5px}
 .toast{font-size:14px;color:var(--gold);min-height:1.3em;margin:0}
 
-@media (max-width:380px){.actions{grid-template-columns:repeat(2,1fr)}.name{font-size:38px}.book .btn{font-size:12px}.book img{height:186px}}
+@media (max-width:380px){.name{font-size:38px}.book .btn{font-size:12px}.book img{height:186px}}
 @media (prefers-reduced-motion:no-preference){.portrait img{animation:rise .7s ease-out both}@keyframes rise{from{transform:translateY(8px)}to{transform:none}}}
 </style>
 </head>
@@ -190,13 +195,13 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
       <p class="eyebrow">STORY</p>
       <h2 id="h-story">일곱 갈래 길</h2>
       <ol class="path">
-        <li><span class="no">1</span><div><h3>촌놈 <span>1968 ~</span></h3><p>전라남도 담양에서 태어나 창평고등학교를 다녔습니다.</p></div></li>
-        <li><span class="no">2</span><div><h3>뱃놈 <span>1988 ~ 1995</span></h3><p>한국해양대학교 기관공학과에서 해군사관의 꿈을 키웠습니다. 학내민주화운동으로 해군ROTC에서 제적되어 육군으로 복무했고, 복학 뒤 다시 제적되었으나 노무현·문재인 합동법률사무소를 통한 행정소송에서 이겨 학위를 받았습니다.</p></div></li>
-        <li><span class="no">3</span><div><h3>IT·노사모 <span>1990년대 후반 ~ 2000</span></h3><p>인터넷에 눈을 떠 IT기획과 홍보마케팅 일을 했습니다. 2000년 총선 때 노무현 후보 홈페이지 홍보를 돕게 된 인연으로 정치인 팬클럽 ‘노사모’ 창립을 처음 제안했습니다. (아이디: 늙은여우)</p></div></li>
-        <li><span class="no">4</span><div><h3>공보·지방행정 <span>2004 ~ 2014</span></h3><p>열린우리당 중앙당에서 당보 발행과 TV토론 지원, 홍보 공보 업무를 맡았고, 국회 원내 대변인실을 거쳐 광주광역시 대변인실에서 시장 연설문을 작성했습니다. 이 시기에 SNS 활동을 시작했습니다.</p></div></li>
-        <li><span class="no">5</span><div><h3>정치참모 <span>2014 ~ 2022</span></h3><p>국회의원 보좌관으로 두 차례 일했고, 더불어민주당 광주광역시당 정책실장과 지역위원회 사무국장을 거쳐 제19대·제20대 대통령선거 중앙선거대책위원회에서 공보와 전략을 맡는 등 1998년 이후 30여 차례의 치열한 선거를 치렀습니다.</p></div></li>
-        <li><span class="no">6</span><div><h3>정책참모 <span>2022 ~ 2026</span></h3><p>광주광역시의회 의장비서실장과 특별전문위원으로 시와 시교육청 예산결산을 분석하고 예결특위·5·18특위·기후특위·노동특위·인공지능실증특위 등을 지원했습니다. 2026년 7월 통합특별시의회 출범과 함께 교육특별수석전문위원으로 일했습니다.</p></div></li>
-        <li><span class="no">7</span><div><h3>작가·플로우워커 <span>2026.10 ~</span></h3><p>현미경과 망원경으로 정치와 행정을 본 경험을 글과 책으로 나눕니다. 인공지능 10급 공무원 활용법, 정책선거 노하우 등을 출간했으며 선출직 어공들을 위한 컨설팅 활동을 하고 있습니다. 정치와 행정, 사람과 정책, 기술과 행정, AI와 인간을 연결하며 새로운 흐름을 설계합니다.</p></div></li>
+        <li><span class="no">1</span><details><summary><h3>촌놈 <span>1968 ~</span></h3></summary><p>전라남도 담양에서 태어나 창평고등학교를 다녔습니다.</p></details></li>
+        <li><span class="no">2</span><details><summary><h3>뱃놈 <span>1988 ~ 1995</span></h3></summary><p>한국해양대학교 기관공학과에서 해군사관의 꿈을 키웠습니다. 학내민주화운동으로 해군ROTC에서 제적되어 육군으로 복무했고, 복학 뒤 다시 제적되었으나 노무현·문재인 합동법률사무소를 통한 행정소송에서 이겨 학위를 받았습니다.</p></details></li>
+        <li><span class="no">3</span><details><summary><h3>IT·노사모 <span>1990년대 후반 ~ 2000</span></h3></summary><p>인터넷에 눈을 떠 IT기획과 홍보마케팅 일을 했습니다. 2000년 총선 때 노무현 후보 홈페이지 홍보를 돕게 된 인연으로 정치인 팬클럽 ‘노사모’ 창립을 처음 제안했습니다. (아이디: 늙은여우)</p></details></li>
+        <li><span class="no">4</span><details><summary><h3>공보·지방행정 <span>2004 ~ 2014</span></h3></summary><p>열린우리당 중앙당에서 당보 발행과 TV토론 지원, 홍보 공보 업무를 맡았고, 국회 원내 대변인실을 거쳐 광주광역시 대변인실에서 시장 연설문을 작성했습니다. 이 시기에 SNS 활동을 시작했습니다.</p></details></li>
+        <li><span class="no">5</span><details><summary><h3>정치참모 <span>2014 ~ 2022</span></h3></summary><p>국회의원 보좌관으로 두 차례 일했고, 더불어민주당 광주광역시당 정책실장과 지역위원회 사무국장을 거쳐 제19대·제20대 대통령선거 중앙선거대책위원회에서 공보와 전략을 맡는 등 1998년 이후 30여 차례의 치열한 선거를 치렀습니다.</p></details></li>
+        <li><span class="no">6</span><details><summary><h3>정책참모 <span>2022 ~ 2026</span></h3></summary><p>광주광역시의회 의장비서실장과 특별전문위원으로 시와 시교육청 예산결산을 분석하고 예결특위·5·18특위·기후특위·노동특위·인공지능실증특위 등을 지원했습니다. 2026년 7월 통합특별시의회 출범과 함께 교육특별수석전문위원으로 일했습니다.</p></details></li>
+        <li><span class="no">7</span><details><summary><h3>작가·플로우워커 <span>2026.10 ~</span></h3></summary><p>현미경과 망원경으로 정치와 행정을 본 경험을 글과 책으로 나눕니다. 인공지능 10급 공무원 활용법, 정책선거 노하우 등을 출간했으며 선출직 어공들을 위한 컨설팅 활동을 하고 있습니다. 정치와 행정, 사람과 정책, 기술과 행정, AI와 인간을 연결하며 새로운 흐름을 설계합니다.</p></details></li>
       </ol>
     </section>
 
@@ -311,7 +316,6 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
 
 <footer>
   <div class="wrap">
-    <img class="qr" src="assets/qr.png" alt="이 명함으로 연결되는 QR코드" width="330" height="330">
     <p class="url">abcorea-creator.github.io</p>
     <div class="share">
       <button class="btn" type="button" id="share-btn">카톡·문자로 공유</button>
