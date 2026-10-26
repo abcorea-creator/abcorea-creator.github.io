@@ -73,9 +73,9 @@ img{max-width:100%;height:auto;display:block}
 .contact-lines b{color:var(--text);font-weight:500;user-select:all}
 
 /* 공통 섹션 */
-section.block{padding-block:28px 4px}
-.eyebrow{font-size:13px;letter-spacing:.14em;color:var(--seal);font-weight:600;margin:0 0 4px}
-h2{font-family:var(--f-display);font-size:25px;line-height:1.3;margin:0 0 14px;text-wrap:balance}
+section.block{padding-block:22px 2px}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;color:var(--seal);font-weight:600;margin:0 0 2px}
+h2{font-family:var(--f-display);font-size:24px;line-height:1.25;margin:0 0 10px;text-wrap:balance}
 
 /* 3. 일곱 갈래 길 */
 .path{list-style:none;margin:0;padding:0;position:relative}
@@ -95,8 +95,8 @@ h2{font-family:var(--f-display);font-size:25px;line-height:1.3;margin:0 0 14px;t
 .path li:last-child h3{color:var(--seal)}
 
 /* 4. 경력 */
-.tags{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:0 0 22px;padding:0;list-style:none}
-.tags li{grid-column:span 2;text-align:center;white-space:nowrap;font-size:14.5px;padding:7px 4px;border:1px solid var(--line);border-radius:999px;background:var(--card);letter-spacing:-.01em}
+.tags{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:0 0 12px;padding:0;list-style:none}
+.tags li{grid-column:span 2;text-align:center;white-space:nowrap;font-size:clamp(12.5px,3.6vw,14px);line-height:1.4;padding:4px 2px;border:1px solid var(--line);border-radius:999px;background:var(--card);letter-spacing:-.01em}
 .tags li.w{grid-column:span 3}
 @media (max-width:370px){.tags li{font-size:13px}}
 .groups{display:grid;gap:14px}
@@ -129,33 +129,38 @@ details.all[open] summary::after{content:"－"}
 .btn{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:8px;background:var(--ink);color:#fff;text-decoration:none;font-size:14.5px;font-weight:500;border:0;cursor:pointer;font-family:inherit}
 
 /* 6. 방명록 */
-.gb-form{display:grid;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
-.gb-form label{font-size:14.5px;font-weight:500}
-.gb-form input,.gb-form textarea{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--text)}
-.gb-form textarea{min-height:96px;resize:vertical}
+.gb-form{display:grid;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.gb-form label{font-size:14px;font-weight:500;line-height:1.3}
+.gb-form input,.gb-form textarea{width:100%;font:inherit;font-size:16px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--text)}
+.gb-form textarea{min-height:68px;resize:vertical}
 .gb-form .hp{position:absolute;left:-9999px}
-.gb-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-.gb-note{font-size:13.5px;color:var(--muted);margin:0}
-.gb-msg{font-size:14.5px;margin:0;min-height:1.4em}
+.gb-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:2px}
+.gb-row .btn{flex:none;padding:8px 18px}
+.gb-note{font-size:12.5px;line-height:1.45;color:var(--muted);margin:0;min-width:0}
+.gb-msg{font-size:14px;margin:0}
+.gb-msg:empty{display:none}
 .gb-msg.err{color:var(--seal)}
-.gb-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:0}
-.gb-list li{padding:8px 2px;border-bottom:1px solid var(--line);line-height:1.5}
+.gb-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:0}
+.gb-list li{padding:6px 2px;border-bottom:1px solid var(--line);line-height:1.45}
 .gb-list .who{font-weight:600}
 .gb-list .when{font-size:13px;color:var(--muted);margin-left:8px;font-variant-numeric:tabular-nums}
-.gb-list p{margin:2px 0 0;white-space:pre-wrap}
-.gb-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 0}
-.gb-pager button{min-width:38px;height:38px;padding:0 8px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:15px;font-variant-numeric:tabular-nums;cursor:pointer}
+.gb-list p{margin:0;white-space:pre-wrap}
+.gb-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0 0}
+[hidden]{display:none!important}
+.gb-pager button{min-width:34px;height:34px;padding:0 8px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:15px;font-variant-numeric:tabular-nums;cursor:pointer}
 .gb-pager button[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
 .sample{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);margin-left:6px}
 
 /* 7. 하단 */
-footer{margin-top:32px;background:var(--ink);color:var(--on-ink)}
-footer .wrap{padding-block:24px 28px;display:grid;justify-items:center;text-align:center;gap:10px}
+footer{margin-top:20px;background:var(--ink);color:var(--on-ink)}
+footer .wrap{padding-block:16px 18px;display:grid;justify-items:center;text-align:center;gap:8px}
 footer .share{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 footer .share .btn{background:var(--ink-2);border:1px solid rgba(185,193,212,.3)}
-footer .url{font-size:14px;color:var(--on-ink-muted)}
-footer .seal{width:72px;height:72px;padding:8px;border-radius:50%;background:var(--paper)}
+footer .url{margin:0;font-size:13.5px;color:var(--on-ink-muted)}
+footer .sign{display:flex;align-items:center;gap:10px}
+footer .seal{width:44px;height:44px;padding:5px;border-radius:50%;background:var(--paper)}
 footer small{color:var(--on-ink-muted);font-size:12.5px}
+.toast:empty{display:none}
 .toast{font-size:14px;color:var(--gold);min-height:1.3em;margin:0}
 
 @media (max-width:380px){.name{font-size:38px}.book .btn{font-size:12px}.book img{height:186px}}
@@ -322,8 +327,7 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
       <button class="btn" type="button" id="copy-btn">링크 복사</button>
     </div>
     <p class="toast" id="toast" role="status"></p>
-    <img class="seal" src="assets/seal.png" alt="" width="231" height="240">
-    <small>© 2026 이정기</small>
+    <div class="sign"><img class="seal" src="assets/seal.png" alt="" width="231" height="240"><small>© 2026 이정기</small></div>
   </div>
 </footer>
 
