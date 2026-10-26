@@ -198,7 +198,7 @@ footer small{color:var(--on-ink-muted);font-size:12.5px}
 
     <section class="block" id="story" aria-labelledby="h-story">
       <p class="eyebrow">STORY</p>
-      <h2 id="h-story">일곱 갈래 길</h2>
+      <h2 id="h-story">걸어온 길</h2>
       <ol class="path">
         <li><span class="no">1</span><details><summary><h3>촌놈 <span>1968 ~</span></h3></summary><p>전라남도 담양에서 태어나 창평고등학교를 다녔습니다.</p></details></li>
         <li><span class="no">2</span><details><summary><h3>뱃놈 <span>1988 ~ 1995</span></h3></summary><p>한국해양대학교 기관공학과에서 해군사관의 꿈을 키웠습니다. 학내민주화운동으로 해군ROTC에서 제적되어 육군으로 복무했고, 복학 뒤 다시 제적되었으나 노무현·문재인 합동법률사무소를 통한 행정소송에서 이겨 학위를 받았습니다.</p></details></li>
@@ -340,7 +340,7 @@ const $ = (id) => document.getElementById(id);
 const list = $("gb-list"), msg = $("gb-msg");
 
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-const PER_PAGE = 10;
+const PER_PAGE = 5;
 let gbItems = [], gbSample = false, gbPage = 1;
 function render(items, sample){
   gbItems = items; gbSample = sample; gbPage = 1; showPage(1, false);
